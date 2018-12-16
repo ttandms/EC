@@ -1,0 +1,8 @@
+INSERT INTO `EC`.`users`
+(`name`,
+`mail_address`,
+`password`)
+VALUES
+('administrator',
+'administrator@tandm.jp',
+'test');
