@@ -41,9 +41,12 @@ class AppController extends Controller
     {
         parent::initialize();
 
-        $this->loadComponent('RequestHandler', [
+        // RequestHandlerコンポーネント。入力されたデータの取得などに使用
+        /*$this->loadComponent('RequestHandler', [
             'enableBeforeRedirect' => false,
-        ]);
+        ]);*/
+        $this->loadComponent('RequestHandler');
+        // Flashコンポーネント。エラーメッセージの表示などに使用
         $this->loadComponent('Flash');
 
         /*
@@ -51,5 +54,66 @@ class AppController extends Controller
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
          */
         //$this->loadComponent('Security');
+
+        $this->loadComponent('Auth', [
+            'authorize' => ['Controller'],
+            'loginAction' => [
+                'controller' => 'Users',
+                'action' => 'login'
+            ],
+            'loginRedirect' => [
+                'controller' => 'Users',
+                'action' => 'index'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'Users',
+                'action' => 'login'
+            ],
+            'authenticate' => [
+                'Form' => [
+                    'fields' => [
+                        'username' => 'name',
+                        'password' => 'password'
+                    ]
+                ]
+            ],
+            'authError' => 'ログインして'
+        ]);
+
     }
+/*
+    public $components = array('Session', 'Auth');
+
+    public function beforeFilter() {
+        // ログインを扱うアクション
+        $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
+
+        // ログイン後のリダイレクト先のアクション
+        $this->Auth->loginRedirect = array('controller' => 'users', 'action' => 'index');
+
+        // ユーザがログアウトした後のリダイレクト先となるデフォルトのアクション
+        $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
+
+        // ユーザの権限判定のためにアクティブなコントローラの isAuthorized() の戻り値を使う
+        $this->Auth->authorize = array('Controller');
+
+        // ユーザのログインに使いたい認証オブジェクトの配列を
+        $this->Auth->authenticate = array(
+            'Form' => array(
+                'userModel' => 'User',
+                'fields' => array(
+                    'username' => 'name',
+                    'password' => 'password'
+                ),
+                'scope' => array('User.active' => 1)    //本登録済みユーザのみログイン可能
+            )
+        );
+
+        if ($this->Session->check('Auth.User')) {   //ログイン済み
+            $loggedin = $this->Session->read('Auth.User');
+            $this->set(compact('loggedin'));
+        }
+    }
+*/
+
 }
