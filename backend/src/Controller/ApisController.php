@@ -5,9 +5,10 @@ use App\Controller\AppController;
 
 class ApisController extends AppController {
 
-  public function index() {
+  public function add() {
     // HTMLの表示はいらないため自動レンダリングをOFFにする
     $this->autoRender = false;
+    echo $this->request->body;
     // レスポンスの形式をJSONで指定
     $this->response->type('application/json');
 
