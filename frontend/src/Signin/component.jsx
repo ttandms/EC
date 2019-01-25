@@ -7,7 +7,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
 //TODO
-import { apiClient, apiPath } from "../apis";
+import { apiClient, apiPath } from "../api";
 
 export default class Singin extends Component {
   constructor() {
