@@ -1,0 +1,41 @@
+version: "3"
+services:
+  db:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker/mysql/volumes:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: EC
+  react:
+    image: node
+    container_name: React
+    volumes:
+      - ./frontend:/root/frontend
+    working_dir: /root/frontend
+    command: yarn start && yarn start
+    ports:
+      - 3002:3000
+    depends_on:
+      - db
+      - server
+    tty: true
+    stdin_open: true
+  server:
+    build:
+      context: .
+      dockerfile: ./docker/cakephp/Dockerfile
+    container_name: CakePHP
+    command: ./backend/bin/cake server -H 0.0.0.0
+    ports:
+      - 8765:8765
+    volumes:
+      - .:/myapp
+    depends_on:
+      - db
+    tty: true
+    stdin_open: true
