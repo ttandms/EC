@@ -10,7 +10,7 @@ import Button from "@material-ui/core/Button";
 import { apiClient, apiPath } from "../api";
 
 export default class Singin extends Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
       email: null,
@@ -22,15 +22,12 @@ export default class Singin extends Component {
 
   async signin() {
     this.setState({ sent: true });
-    const response = await apiClient.post(apiPath.example, {
-      from: "component"
-    });
-
-    console.log(response);
+    this.props.dispatchers.Singin("email2", "password1");
   }
 
   get form() {
     const { email, password } = this.state;
+    console.log(this.props.user);
     return (
       <div>
         <TextField

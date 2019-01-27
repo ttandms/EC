@@ -10,8 +10,15 @@ export const apiClient = axios.create({
 
 // define api endpoint
 export const apiPath = {
-  logout: "index/logout",
-  email_login: "index/email_login",
-  do_register: "index/do_register",
+  // [POST] ログアウト
+  logout: "logout",
+
+  // [POST] emailログイン {"email", "password"}
+  login: "login",
+
+  // [POST] 会員登録 {name, email, tell, birthday, password}
+  register: "register",
+
+  // apiの例
   example: "apis"
 };
