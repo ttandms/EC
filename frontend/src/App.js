@@ -12,23 +12,27 @@ import {
 
 import Singin from "./Signin";
 import Signup from "./Signup/component";
+import Navigation from "./Navigation";
+import Footer from "./Footer";
 
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router>
-          <div className="App">
-            <header className="App-header">
-              <p>ECサイトのトップページ</p>
-            </header>
-            <div className={styleMedia.main}>
-              {/* <Singin /> */}
-              <Route path="/signin" component={Singin} />
-              <Route path="/signup" component={Signup} />
+        <div className="app">
+          <Router>
+            <div>
+              <Navigation className="header" />
+              <div className="main">
+                {/* <Singin /> */}
+                <Route path="/signin" component={Singin} />
+                <Route path="/signup" component={Signup} />
+              </div>
             </div>
-          </div>
-        </Router>
+          </Router>
+
+          <Footer className="footer" />
+        </div>
       </Provider>
     );
   }

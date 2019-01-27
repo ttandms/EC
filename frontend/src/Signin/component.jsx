@@ -39,14 +39,18 @@ export default class Singin extends Component {
         <TextField
           type="password"
           label="Password"
+          required={true}
+          className={style.field}
           value={password || ""}
           onChange={event => this.setState({ password: event.target.value })}
           placeholder="Password"
           fullWidth
         />
-        <Button fullWidth onClick={this.signin}>
-          ログイン
-        </Button>
+        <div className={style.field}>
+          <Button fullWidth onClick={this.signin} className={style.signin}>
+            ログイン
+          </Button>
+        </div>
 
         <Link to="/signup" className={style.signup}>
           新規登録はこちら

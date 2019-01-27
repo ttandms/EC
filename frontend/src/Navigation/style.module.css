@@ -1,0 +1,16 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffffff;
+  height: 64px;
+  border-bottom: 1px solid #d4d4d9;
+  box-sizing: border-box;
+  padding-left: 32px !important;
+  padding-right: 32px !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN",
+    "ヒラギノ角ゴ ProN W3", "Noto Sans Japanese Regular", Meiryo, "メイリオ",
+    sans-serif;
+  font-size: 15px;
+  color: #666680 !important;
+  box-shadow: none;
+}

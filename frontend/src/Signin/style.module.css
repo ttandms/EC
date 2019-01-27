@@ -1,6 +1,25 @@
-.root {
+.flex {
   display: flex;
-  background-color: white;
+  background-color: #f5f5fa;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form {
+  padding: 32px;
+}
+
+.field {
+  margin-top: 32px !important;
+}
+
+.signin {
+  background-color: rgb(0, 255, 221) !important;
+  border-radius: 20px;
   width: 50%;
+}
+
+.signup {
 }
