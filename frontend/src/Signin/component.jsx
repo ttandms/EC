@@ -6,9 +6,6 @@ import Paper from "@material-ui/core/Paper";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
-//TODO
-import { apiClient, apiPath } from "../api";
-
 export default class Singin extends Component {
   constructor(props) {
     super();
@@ -22,7 +19,7 @@ export default class Singin extends Component {
 
   async signin() {
     this.setState({ sent: true });
-    this.props.dispatchers.Singin("email2", "password1");
+    this.props.dispatchers.Singin(this.state.email, this.state.password);
   }
 
   get form() {
@@ -54,6 +51,12 @@ export default class Singin extends Component {
         <Link to="/signup" className={style.signup}>
           新規登録はこちら
         </Link>
+        {this.props.user && this.props.user.apple ? (
+          <div>
+            name:
+            {this.props.user.apple}
+          </div>
+        ) : null}
       </div>
     );
   }
