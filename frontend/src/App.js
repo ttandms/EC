@@ -7,7 +7,7 @@ import { ConnectedRouter } from "connected-react-router";
 
 import NoLogin from "./NoLogin";
 import Singin from "./Signin";
-import Signup from "./Signup/component";
+import Signup from "./Signup";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
 
