@@ -1,7 +1,7 @@
 import { apiClient, apiPath } from "../api";
 import { GET_USER_INFO } from "./actions";
 
-export default class Dispathers {
+export default class Dispatchers {
   constructor(dispatch) {
     this.dispatch = dispatch;
     this.Singin = this.Singin.bind(this);

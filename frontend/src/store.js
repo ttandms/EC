@@ -1,7 +1,13 @@
-import { createStore, combineReducers } from "redux";
-import { routerReducer } from "react-router-redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
 import user from "./Signin/reducers";
+import { createBrowserHistory } from "history";
+import { routerMiddleware, connectRouter } from "connected-react-router";
 
-const store = createStore(combineReducers({ user, router: routerReducer }));
+const history = createBrowserHistory();
 
-export { store };
+const store = createStore(
+  combineReducers({ user, router: connectRouter(history) }),
+  applyMiddleware(routerMiddleware(history))
+);
+
+export { store, history };
