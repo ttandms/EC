@@ -10,6 +10,7 @@ import Singin from "./Signin";
 import Signup from "./Signup";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
+import Product from "./Product";
 
 class App extends Component {
   render() {
@@ -23,6 +24,7 @@ class App extends Component {
                 <Route path="/" component={NoLogin} />
                 <Route path="/signin" component={Singin} />
                 <Route path="/signup" component={Signup} />
+                <Route path="/product" component={Product} />
               </div>
             </div>
           </ConnectedRouter>
