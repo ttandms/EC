@@ -19,6 +19,9 @@ export const apiPath = {
   // [POST] 会員登録 {name, email, tell, birthday, password}
   register: "register",
 
+  // [POST] 商品登録 {name, detail, stock, img_path, price, category}
+  products: "products",
+
   // apiの例
   example: "apis"
 };
